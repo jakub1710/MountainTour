@@ -51,7 +51,7 @@
                             class="fab fa-instagram"></i></a>
                     <a class="nav-mobile-socialmedia-link" href="https://www.youtube.com/" target="_blank"><i
                             class="fab fa-youtube"></i></a>
-                    <a class="nav-mobile-socialmedia-link--message" href="#contact"><i class="fas fa-comments"></i></a>
+                    <a class="nav-mobile-socialmedia-link--message form-icon" href="#"><i class="fas fa-comments"></i></a>
                 </div>
             </nav>
 
@@ -87,6 +87,27 @@
             </div>
         </div>
     </header>
+
+    <div class="popup">
+
+        <h2>formularz</h2>
+
+        <div class="popup__form">
+            <input type="text" id="name" placeholder="Imię">
+
+            <input type="text" id="mail" placeholder="E-mail">
+
+            <textarea id="message" placeholder="Wiadomość"></textarea>
+        </div>
+
+        <p class="error"></p>
+
+        <div class="control-buttons">
+            <button class="send">Wyślij</button>
+            <button class="cancel">Anuluj</button>
+        </div>
+
+    </div>
 
     <main>
         <section id="team" class="team">
@@ -256,23 +277,24 @@
                     <form class="contact__info-form">
                         <div class="contact__info-form-box">
                             <label for="name">Imię:</label>
-                            <input type="text" id="name">
+                            <input type="text" id="name" class="data">
                         </div>
                         <div class="contact__info-form-box">
                             <label for="mail">Mail:</label>
-                            <input type="email" id="mail">
+                            <input type="email" id="mail" class="data">
                         </div>
                         <div class="contact__info-form-box">
                             <label for="msg">Wiadomość:</label>
-                            <textarea id="msg" cols="30" rows="10"></textarea>
+                            <textarea id="msg" cols="30" rows="10" class="data"></textarea>
                         </div>
 
-                        <div class="contact__info-form-box">
-                            <button type="submit" class="contact__info-form-btn">Wyślij</button>
-                        </div>
                     </form>
 
+                    <div class="contact__info-form-box">
+                        <button type="submit" class="contact__info-form-btn">Wyślij</button>
+                    </div>
                 </div>
+            </div>
         </section>
     </main>
 
