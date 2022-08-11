@@ -23,7 +23,7 @@ body {
 }
 
 span.header__title-color {
-  color: #9ba4b4;
+  color: #59dead;
 }
 
 h2.section-title {
@@ -43,23 +43,15 @@ h2.section-title::before {
   bottom: 0px;
   width: 100%;
   height: 3px;
+  background-color: #59dead;
 }
 
 h2.section-title-dark {
   color: #14274e;
 }
 
-h2.section-title-dark::before {
-  background-color: #14274e;
-}
-
 h2.section-title-light {
-  padding-top: 1em;
   color: #9ba4b4;
-}
-
-h2.section-title-light::before {
-  background-color: #9ba4b4;
 }
 
 .hero {
@@ -70,6 +62,7 @@ h2.section-title-light::before {
 
 .hero .navbar {
   position: relative;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,7 +70,9 @@ h2.section-title-light::before {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 15vh;
+  height: 10vh;
+  z-index: 10;
+  background-color: rgba(19, 26, 53, 0.7);
 }
 
 .hero .navbar .logo {
@@ -88,7 +83,7 @@ h2.section-title-light::before {
       -ms-flex-align: center;
           align-items: center;
   padding: 1.8em;
-  width: 70vw;
+  width: 80vw;
   height: 100%;
   z-index: 10;
 }
@@ -98,7 +93,7 @@ h2.section-title-light::before {
   font-weight: 300;
   letter-spacing: 2px;
   text-decoration: none;
-  color: #f1f6f9;
+  color: #59dead;
 }
 
 .hero .navbar .hamburger {
@@ -114,9 +109,8 @@ h2.section-title-light::before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 2em;
-  padding: 2em;
-  width: 30vw;
+  padding: 1em;
+  width: 20vw;
   height: 100%;
   z-index: 10;
 }
@@ -126,7 +120,7 @@ h2.section-title-light::before {
 }
 
 .hero .navbar .hamburger-inner, .hero .navbar .hamburger-inner::before, .hero .navbar .hamburger-inner::after {
-  background-color: #9ba4b4;
+  background-color: #59dead;
   z-index: 10;
 }
 
@@ -323,81 +317,8 @@ h2.section-title-light::before {
           transform: translate(-50%, -50%);
 }
 
-.popup {
-  position: absolute;
-  top: 0;
-  display: none;
-  height: 100vh;
-  width: 100%;
-  background-color: #f1f6f9;
-  z-index: 1000;
-}
-
-.popup h2 {
-  margin: 20px auto 20px auto;
-  font-size: 32px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #14274e;
-}
-
-.popup__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.popup__form input, .popup__form textarea {
-  width: 90%;
-  margin-bottom: 20px;
-  padding: 10px;
-  font-size: 18px;
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  background: transparent;
-}
-
-.popup .error {
-  margin-top: 10px;
-  font-size: 18px;
-  text-align: center;
-  color: red;
-}
-
-.popup .control-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 20px;
-}
-
-.popup .control-buttons button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background: transparent;
-  border: 1px solid #14274e;
-  cursor: pointer;
-}
-
 .team {
-  margin: 3em 2em 1em;
+  padding: 3em 2em 1em;
 }
 
 .team__boxes {
@@ -443,23 +364,35 @@ h2.section-title-light::before {
 
 .tours {
   position: relative;
-  margin: 3em 0 1em;
+  padding: 3em 1em;
   background-color: #14274e;
 }
 
 .tours__offers {
-  padding: 1em 2em;
+  margin: 1em 2em;
   color: #f1f6f9;
 }
 
-.tours__offers-box {
+.tours__box {
   position: relative;
   margin: 3em 0;
   border: 2px solid #9ba4b4;
 }
 
-.tours__offers-box h3.tours {
-  margin-top: 0.3em;
+.tours__box:hover .tours__box-front {
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+  opacity: 0;
+}
+
+.tours__box:hover .tours__box-back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  opacity: 1;
+}
+
+.tours__box h3.tours {
+  margin: 0.3em 0 0.3em 0;
   padding: 0;
   font-size: 3.2rem;
   font-weight: 200;
@@ -467,26 +400,14 @@ h2.section-title-light::before {
   text-align: center;
 }
 
-.tours__offers-box:hover .tours__offers-box-front {
-  -webkit-transform: rotateY(-90deg);
-          transform: rotateY(-90deg);
-  opacity: 0;
-}
-
-.tours__offers-box:hover .tours__offers-box-back {
-  -webkit-transform: rotateY(0);
-          transform: rotateY(0);
-  opacity: 1;
-}
-
-.tours__offers-box-front {
+.tours__box-front {
   -webkit-transition: -webkit-transform 0.8s;
   transition: -webkit-transform 0.8s;
   transition: transform 0.8s;
   transition: transform 0.8s, -webkit-transform 0.8s;
 }
 
-.tours__offers-box-front img {
+.tours__box-front img {
   margin: 1em 0 0.5em;
   width: 100%;
   background-size: cover;
@@ -494,7 +415,7 @@ h2.section-title-light::before {
   opacity: 0.7;
 }
 
-.tours__offers-box-front-info {
+.tours__box-more {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -508,11 +429,11 @@ h2.section-title-light::before {
   height: 40px;
 }
 
-.tours__offers-box-front-info i {
+.tours__box-more i {
   font-size: 2rem;
 }
 
-.tours__offers-box-back {
+.tours__box-back {
   position: absolute;
   top: 0px;
   width: 100%;
@@ -526,105 +447,230 @@ h2.section-title-light::before {
   opacity: 0;
 }
 
-.tours__offers-box-back-list {
-  position: absolute;
-  top: 80px;
-  margin: 1em;
+.tours__back-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 70%;
   font-size: 1.5rem;
   list-style-type: none;
 }
 
-.tours__offers-box-back-item {
-  margin: 1em;
+.tours__back-item {
+  margin: 1em 1em;
 }
 
-.tours__offers-box-back .fas {
-  margin: 0 0.2em;
+.tours__back-item .fas {
+  margin: 0 0.3em;
   color: #9ba4b4;
 }
 
-.tours__offers-box-back-info {
-  position: absolute;
-  bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 20%;
-}
-
-.tours__offers-box-back-info .fas-info {
-  padding: 1em;
-  font-size: 2rem;
-}
-
 .gallery {
-  margin: 3em 0 3em;
+  padding: 3em 0;
 }
 
 .gallery__picture {
-  margin: 2em 0;
+  margin-top: 2em;
   width: 100%;
 }
 
 .gallery__picture img {
+  margin: 0.5em;
   width: 100%;
-  height: 200px;
+  height: 150px;
   background-position: center;
   background-size: cover;
 }
 
+.gallery .image-zoom {
+  -webkit-animation: scaleUp 1s;
+          animation: scaleUp 1s;
+}
+
+@-webkit-keyframes scaleUp {
+  from {
+    width: 50vw;
+    height: 50vh;
+  }
+  to {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    width: 50vw;
+    height: 50vh;
+  }
+  to {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
 .contact {
   position: relative;
+  padding: 3em 1em;
   background-color: #14274e;
 }
 
-.contact__info {
-  margin: 0 1em;
-  font-size: 2.5rem;
+.contact__form-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem 0;
+}
+
+.contact__form-box input,
+.contact__form-box textarea {
+  padding: 1rem;
+  width: 90%;
+  font-size: 1.8rem;
+  background-color: transparent;
+  color: #f1f6f9;
+  border: none;
+  border-bottom: 2px solid #59dead;
+}
+
+.contact__form-box .error-text {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #fd4f50;
+  visibility: hidden;
+}
+
+.contact__form .contact__form-box.error .error-text {
+  visibility: visible;
+}
+
+.contact__form .contact__form-box.error .error-input {
+  border: none;
+  border-bottom: 2px solid #fd4f50;
+}
+
+.contact__form .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 3rem;
+}
+
+.contact__form .button .send-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #f1f6f9;
+  border: 2px solid #f1f6f9;
+}
+
+.contact__form .popup {
+  position: absolute;
+  left: -100%;
+  bottom: 35%;
+  width: 250px;
+  height: 80px;
+  background-color: #14274e;
+  border: 2px solid #f1f6f9;
+  z-index: 1;
+}
+
+.contact__form .popup p {
+  margin-top: 0.6em;
+  font-size: 1.8rem;
+  text-align: center;
   color: #f1f6f9;
 }
 
-.contact__info-form-box {
-  margin: 1em 0;
-}
-
-.contact__info-form-box input {
-  height: 30px;
-}
-
-.contact__info-form-box textarea {
-  max-width: 100%;
+.contact__form .popup .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: 5%;
+  height: 40%;
   width: 100%;
-  min-width: 100%;
 }
 
-.contact__info-form-box input,
-.contact__info-form-box textarea {
-  font-size: 2rem;
-  background: none;
+.contact__form .popup .button button {
+  width: 70px;
+  height: 20px;
+}
+
+.contact__form .active-popup {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.contact__address h3.contact-title {
+  margin: 0.5em 0 0.5em;
+  font-size: 5rem;
+  font-weight: 200;
+  text-align: center;
   color: #f1f6f9;
-  border: 1px solid #f1f6f9;
 }
 
-.contact__info .error {
-  width: 100%;
-  color: red;
+.contact__address-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.contact__info-btn {
-  margin-bottom: 1em;
-  width: 120px;
-  height: 40px;
-  font-size: 2rem;
-  background: none;
-  color: #9ba4b4;
-  border: 1px solid #9ba4b4;
+.contact__address-data p {
+  margin-top: 0.3em;
+  color: #f1f6f9;
+  font-size: 1.6rem;
+}
+
+.contact__address-data i {
+  margin-right: 1em;
 }
 
 .footer {
@@ -638,12 +684,14 @@ h2.section-title-light::before {
 }
 
 @media (min-width: 576px) {
+  h2.section-title {
+    font-size: 4rem;
+  }
   .hero {
     padding: 0;
   }
   .hero .navbar {
-    padding: 2em;
-    height: 20vh;
+    height: 10vh;
   }
   .hero .navbar .logo {
     position: relative;
@@ -652,7 +700,11 @@ h2.section-title-light::before {
   .hero .navbar .logo__title {
     position: absolute;
     left: 50px;
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  .hero .navbar .hamburger {
+    margin-right: 1em;
+    padding: 1em;
   }
   .hero .hero__img .hero__info {
     padding: 4em;
@@ -693,19 +745,19 @@ h2.section-title-light::before {
   .tours__offers {
     padding: 1em 4em;
   }
-  .tours__offers-box h3.tours {
+  .tours__box h3.tours {
     margin-top: 0.6em;
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
-  .tours__offers-box-back-list {
+  .tours__back-list {
     position: absolute;
     top: 100px;
-    font-size: 2.5rem;
-  }
-  .tours__offers-box-back-info .fas {
-    font-size: 2.5rem;
+    margin-left: 1.5em;
+    height: 60%;
+    font-size: 2rem;
   }
   .gallery__picture img {
+    margin: 0.5em;
     width: 100%;
     height: 250px;
     background-position: center;
@@ -715,7 +767,10 @@ h2.section-title-light::before {
 
 @media (min-width: 768px) {
   h2.section-title {
-    font-size: 4.2rem;
+    font-size: 5rem;
+  }
+  .hero .navbar {
+    height: 12vh;
   }
   .hero .hero__img .hero__info {
     padding: 6em;
@@ -738,7 +793,7 @@ h2.section-title-light::before {
   }
   .team__boxes-box {
     margin: 2em;
-    width: 35vw;
+    width: 55vw;
   }
   .tours__offers {
     margin: 0 auto;
@@ -769,8 +824,25 @@ h2.section-title-light::before {
     background-position: center;
     background-size: cover;
   }
-  .contact__info-form-box {
-    margin: 1.5em 0;
+  .contact__form-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 3em auto;
+  }
+  .contact__form-box input, .contact__form-box textarea {
+    width: 70%;
+    font-size: 2rem;
+  }
+  .contact__form .popup {
+    position: absolute;
+    bottom: 32%;
   }
   .footer {
     padding: 2em;
@@ -832,7 +904,7 @@ h2.section-title-light::before {
     color: #f1f6f9;
   }
   .hero .navbar .nav-desktop a:hover {
-    color: #9ba4b4;
+    color: #59dead;
   }
   .hero .hero__img .hero__info {
     padding: 6em;
@@ -879,25 +951,24 @@ h2.section-title-light::before {
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     width: 100%;
   }
-  .tours__offers-box {
+  .tours__box {
     position: relative;
-    margin: 5em 0;
+    margin: 5em 2.5em;
     width: 35%;
   }
-  .tours__offers-box h3.tours {
-    font-size: 3.6rem;
+  .tours__box h3.tours {
+    font-size: 3rem;
     line-height: 40px;
   }
-  .tours__offers-box-back {
+  .tours__box-back {
     position: absolute;
   }
-  .tours__offers-box-back-list {
+  .tours__back-list {
     position: absolute;
     top: 25%;
+    margin-left: 0;
     font-size: 1.6rem;
   }
   .gallery__picture img {
@@ -908,38 +979,76 @@ h2.section-title-light::before {
     background-size: cover;
   }
   .contact {
-    position: relative;
-    background-color: #14274e;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 3em;
   }
-  .contact__info {
-    margin: 0 4em;
-    font-size: 2.5rem;
+  .contact__box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 2em;
+  }
+  .contact__form {
+    display: block;
+    width: 50%;
+    font-size: 3rem;
     color: #f1f6f9;
   }
-  .contact__info-form-box {
-    margin: 1em 0;
+  .contact__form-box {
+    margin: 0.6em 0;
   }
-  .contact__info-form-box input {
-    height: 30px;
-  }
-  .contact__info-form-box textarea {
+  .contact__form-box input,
+  .contact__form-box textarea {
+    padding: 0.6em;
     max-width: 100%;
     width: 100%;
     min-width: 100%;
+    font-size: 3rem;
   }
-  .contact__info-form-box input,
-  .contact__info-form-box textarea {
+  .contact__form .popup {
+    position: absolute;
+    bottom: 6%;
+    left: -30%;
+    width: 300px;
+    height: 120px;
+  }
+  .contact__form .popup p {
+    margin-top: 1em;
     font-size: 2rem;
   }
-  .contact__info-form-btn {
-    margin-bottom: 1em;
-    width: 120px;
+  .contact__form .popup .button {
+    height: 50%;
+  }
+  .contact__form .popup .button button {
+    width: 100px;
     height: 40px;
+    font-size: 1.6rem;
+  }
+  .contact__form .active-popup {
+    position: absolute;
+    left: 30%;
+  }
+  .contact__form .send-btn {
+    margin-bottom: 1em;
+    width: 180px;
+    height: 70px;
     font-size: 2rem;
     background: none;
     color: #9ba4b4;
     border: 1px solid #9ba4b4;
     cursor: pointer;
+  }
+  .contact__address {
+    width: 50%;
+  }
+  .contact__address-data {
+    padding: 3em;
+  }
+  .contact__address-data p {
+    margin-top: 1em;
+    font-size: 2.4rem;
   }
 }
 

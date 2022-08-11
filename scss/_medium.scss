@@ -1,9 +1,13 @@
 @media (min-width: 768px) {
 	h2.section-title {
-		font-size: 4.2rem;
+		font-size: 5rem;
 	}
 
 	.hero {
+		.navbar {
+			height: 12vh;
+		}
+
 		.hero__img {
 			.hero__info {
 				padding: 6em;
@@ -29,7 +33,7 @@
 
 			&-box {
 				margin: 2em;
-				width: 35vw;
+				width: 55vw;
 			}
 		}
 	}
@@ -76,14 +80,27 @@
 	}
 
 	.contact {
-		&__info {
-			&-form {
-				&-box {
-					margin: 1.5em 0;
+		&__form {
+			
+			&-box {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 3em auto;
+				
+				input, textarea {
+					width: 70%;
+					font-size: 2rem;
 				}
+			}
+
+			.popup {
+				position: absolute;
+				bottom: 32%;
 			}
 		}
 	}
+
 
 	.footer {
 		padding: 2em;

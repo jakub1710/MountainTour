@@ -24,7 +24,7 @@ body {
 }
 
 span.header__title-color {
-	color: $light;
+	color: rgb(89, 222, 173);
 }
 
 h2.section-title {
@@ -41,24 +41,25 @@ h2.section-title {
 		bottom: 0px;
 		width: 100%;
 		height: 3px;
+		background-color: $title;
 	}
 }
 
 h2.section-title-dark {
 	color: $dark;
 
-	&::before {
-		background-color: $dark;
-	}
+	// &::before {
+	// 	background-color: $dark;
+	// }
 }
 
 h2.section-title-light {
-	padding-top: 1em;
+	// padding-top: 1em;
 	color: $light;
 
-	&::before {
-		background-color: $light;
-	}
+	// &::before {
+	// 	background-color: $light;
+	// }
 }
 
 //  header
@@ -70,16 +71,19 @@ h2.section-title-light {
 
 	.navbar {
 		position: relative;
+		position: fixed;
 		display: flex;
 		align-items: center;
 		width: 100%;
-		height: 15vh;
+		height: 10vh;
+		z-index: 10;
+		background-color: rgba(19, 26, 53, 0.7);
 
 		.logo {
 			display: flex;
 			align-items: center;
 			padding: 1.8em;
-			width: 70vw;
+			width: 80vw;
 			height: 100%;
 			z-index: 10;
 
@@ -88,7 +92,7 @@ h2.section-title-light {
 				font-weight: 300;
 				letter-spacing: 2px;
 				text-decoration: none;
-				color: $main;
+				color: $title;
 			}
 		}
 
@@ -99,9 +103,8 @@ h2.section-title-light {
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
-			margin-right: 2em;
-			padding: 2em;
-			width: 30vw;
+			padding: 1em;
+			width: 20vw;
 			height: 100%;
 			z-index: 10;
 
@@ -112,7 +115,7 @@ h2.section-title-light {
 			&-inner,
 			&-inner::before,
 			&-inner::after {
-				background-color: $light;
+				background-color: $title;
 				z-index: 10;
 			}
 		}
@@ -276,72 +279,12 @@ h2.section-title-light {
 	}
 }
 
-// form
-.popup {
-	position: absolute;
-	top: 0;
-	display: none;
-	height: 100vh;
-	width: 100%;
-	background-color: $main;
-	z-index: 1000;
-
-	h2 {
-		margin: 20px auto 20px auto;
-		font-size: 32px;
-		text-align: center;
-		text-transform: uppercase;
-		color: $dark;
-	}
-
-	&__form {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-
-
-		input, textarea {
-			width: 90%;
-			margin-bottom: 20px;
-			padding: 10px;
-			font-size: 18px;
-			border-right: none;
-			border-left: none;
-			border-top: none;
-			background: transparent;
-		}
-	}
-
-	.error {
-		margin-top: 10px;
-		font-size: 18px;
-		text-align: center;
-		color: red;
-	}
-
-	.control-buttons {
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-		margin-top: 20px;
-
-		button {
-			padding: 10px 20px;
-			font-size: 18px;
-			background: transparent;
-			border: 1px solid $dark;
-			cursor: pointer;
-		}
-	}
-
-}
 // main
 
 // team
 
 .team {
-	margin: 3em 2em 1em;
+	padding: 3em 2em 1em;
 
 	&__boxes {
 		position: relative;
@@ -387,120 +330,124 @@ h2.section-title-light {
 // tours
 .tours {
 	position: relative;
-	margin: 3em 0 1em;
+	padding: 3em 1em;
 	background-color: $dark;
 
 	&__offers {
-		padding: 1em 2em;
+		margin: 1em 2em;
 		color: $main;
+	}
 
-		&-box {
-			position: relative;
-			margin: 3em 0;
-			border: 2px solid $light;
+	&__box {
+		position: relative;
+		margin: 3em 0;
+		border: 2px solid $light;
 
-			h3.tours {
-				margin-top: 0.3em;
-				padding: 0;
-				font-size: 3.2rem;
-				font-weight: 200;
-				line-height: 30px;
-				text-align: center;
-			}
-
-			&:hover {
-				.tours__offers-box-front {
-					transform: rotateY(-90deg);
-					opacity: 0;
-				}
-				.tours__offers-box-back {
-					transform: rotateY(0);
-					opacity: 1;
-				}
-			}
-
-			&-front {
-				transition: transform 0.8s;
-
-				img {
-					margin: 1em 0 0.5em;
-					width: 100%;
-					background-size: cover;
-					background-position: center;
-					opacity: 0.7;
-				}
-
-				&-info {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					width: 100%;
-					height: 40px;
-
-					i {
-						font-size: 2rem;
-					}
-				}
-			}
-
-			&-back {
-				position: absolute;
-				top: 0px;
-				width: 100%;
-				height: 100%;
-				transition: transform 1.2s;
-				transform: rotateY(90deg);
+		&:hover {
+			.tours__box-front {
+				transform: rotateY(-90deg);
 				opacity: 0;
-
-				&-list {
-					position: absolute;
-					top: 80px;
-					margin: 1em;
-					font-size: 1.5rem;
-					list-style-type: none;
-				}
-
-				&-item {
-					margin: 1em;
-				}
-
-				.fas {
-					margin: 0 0.2em;
-					color: $light;
-				}
-
-				&-info {
-					position: absolute;
-					bottom: 0;
-					display: flex;
-					justify-content: space-around;
-					align-items: center;
-					width: 100%;
-					height: 20%;
-
-					.fas-info {
-						padding: 1em;
-						font-size: 2rem;
-					}
-				}
 			}
+			.tours__box-back {
+				transform: rotateY(0);
+				opacity: 1;
+			}
+		}
+
+		h3.tours {
+			margin: 0.3em 0 0.3em 0;
+			padding: 0;
+			font-size: 3.2rem;
+			font-weight: 200;
+			line-height: 30px;
+			text-align: center;
+		}
+
+		&-front {
+			transition: transform 0.8s;
+
+			img {
+				margin: 1em 0 0.5em;
+				width: 100%;
+				background-size: cover;
+				background-position: center;
+				opacity: 0.7;
+			}
+		}
+
+		&-more {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 40px;
+
+			i {
+				font-size: 2rem;
+			}
+		}
+
+		&-back {
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			transition: transform 1.2s;
+			transform: rotateY(90deg);
+			opacity: 0;
+		}
+	}
+
+	&__back-list {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		height: 70%;
+		font-size: 1.5rem;
+		list-style-type: none;
+	}
+
+	&__back-item {
+		margin: 1em 1em;
+
+		.fas {
+			margin: 0 0.3em;
+			color: $light;
 		}
 	}
 }
 
 // gallery
 .gallery {
-	margin: 3em 0 3em;
+	padding: 3em 0;
 
 	&__picture {
-		margin: 2em 0;
+		margin-top: 2em;
 		width: 100%;
 
 		img {
+			margin: 0.5em;
 			width: 100%;
-			height: 200px;
+			height: 150px;
 			background-position: center;
 			background-size: cover;
+
+		}
+	}
+
+	.image-zoom {
+		animation: scaleUp 1s;
+	}
+
+	@keyframes scaleUp {
+		from {
+			width: 50vw;
+			height: 50vh;
+		}
+		to {
+			width: 100vw;
+			height: 100vh;
 		}
 	}
 }
@@ -509,49 +456,127 @@ h2.section-title-light {
 
 .contact {
 	position: relative;
+	padding: 3em 1em;
 	background-color: $dark;
 
-	&__info {
-		margin: 0 1em;
-		font-size: 2.5rem;
-		color: $main;
+	&__form {
+		&-box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			margin: 1rem 0;
 
-		&-form {
-			&-box {
-				margin: 1em 0;
+			input,
+			textarea {
+				padding: 1rem;
+				width: 90%;
+				font-size: 1.8rem;
+				background-color: transparent;
+				color: $main;
+				border: none;
+				border-bottom: 2px solid $title;
+			}
 
-				input {
-					height: 30px;
-				}
+			.error-text {
+				margin-top: 1rem;
+				font-size: 1.4rem;
+				color: #fd4f50;
+				visibility: hidden;
+			}
+		}
+		.contact__form-box.error .error-text {
+			visibility: visible;
+		}
 
-				textarea {
-					max-width: 100%;
-					width: 100%;
-					min-width: 100%;
-				}
+		.contact__form-box.error .error-input {
+			border: none;
+			border-bottom: 2px solid #fd4f50;
+		}
 
-				input,
-				textarea {
-					font-size: 2rem;
-					background: none;
-					color: $main;
-					border: 1px solid $main;
+		.button {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 3rem;
+
+			
+
+			.send-btn {
+				padding: 1rem 2.5rem;
+				font-size: 1.6rem;
+				text-transform: uppercase;
+				background-color: transparent;
+				color: $main;
+				border: 2px solid $main;
+			}
+		}
+		.popup {
+			position: absolute;
+			left: -100%;
+			bottom: 35%;
+			width: 250px;
+			height: 80px;
+			background-color: $dark;
+			border: 2px solid $main;
+			z-index: 1;
+	
+
+			p {
+				margin-top: 0.6em;
+				font-size: 1.8rem;
+				text-align: center;
+				color: $main;
+			}
+
+			.button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				bottom: 5%;
+				height: 40%;
+				width: 100%;
+
+				button {
+					width: 70px;
+					height: 20px;
 				}
 			}
 		}
 
-		.error {
-			width: 100%;
-			color: red;
+		.active-popup {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: 1s;
 		}
-		&-btn {
-			margin-bottom: 1em;
-			width: 120px;
-			height: 40px;
-			font-size: 2rem;
-			background: none;
-			color: $light;
-			border: 1px solid $light;
+	}
+
+	&__address {
+		h3.contact-title {
+			margin: 0.5em 0 0.5em;
+			font-size: 5rem;
+			font-weight: 200;
+			text-align: center;
+			color: $main;
+		}
+
+		&-data {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			p {
+				margin-top: 0.3em;
+				color: $main;
+				font-size: 1.6rem;
+			}
+
+			i {
+				margin-right: 1em;
+			}
 		}
 	}
 }
