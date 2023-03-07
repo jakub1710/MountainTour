@@ -24,7 +24,7 @@ MountainTour is the first project in my programming adventure. I decided made we
 ### Screen resolution
 The web page is fully responsive. It works both mobile devices (above 375px) and desktops.
 
-<img src=./img/screenshots/Screenshot4.png width=250px><img src=./img/screenshots/Screenshot5.png width=500px align=right> 
+<img src=./img/screenshots/Screenshot4.png width=250px><img src=./img/screenshots/Screenshot5.png width=600px align=right> 
 
 ### JavaScript functions
 There is a form on the page in the contact section. If you do not fill in any of the fields, the form will return an error. 
